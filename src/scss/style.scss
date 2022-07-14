@@ -1157,6 +1157,7 @@ body {
   position: fixed;
   top: 7vh;
   left: 150vw;
+  max-width: 1162px;
   transform: translateX(-50%) scale(0);
   z-index: 70;
   transition: left 0.4s 0.2s, transform 0.4s;
@@ -1391,7 +1392,7 @@ body {
 // ========= thanks ============
 .thanks {
   width: 100%;
-  max-width: 1162px;
+
   &__inner {
     height: unset;
   }

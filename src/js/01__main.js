@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", function () {
       qOne(".overlay").classList.add("overlay--pazzle");
     });
   }
-  
+
   for (const toGoodsBtn of toGoodsBtns) {
     toGoodsBtn.addEventListener("click", () => hidePopaps());
   }
@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 
+  // отменя стандартной отправки формы
   if (qOne('.cart')) {
     const arrangeForm = qOne('.cart');
     arrangeForm.addEventListener("submit", (e)=> {
