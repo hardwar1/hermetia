@@ -22,15 +22,18 @@ body {
 
 .link-status {
   @include min-w($lg) {
-    transition: color 0.3s;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
 
     &:focus {
       color: $green;
       outline: 0;
     }
+
     &:hover {
-      text-shadow: 0 0 30px #ccffcb;
+      transform: scale(1.1);
     }
+
     &:active {
       color: #000;
     }
