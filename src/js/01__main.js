@@ -165,50 +165,65 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // fly мухи
-  if (qOne(".fly__list")) {
-    const flyLists = qAll(".fly__list");
+  function flyGen() {
+    if (qOne(".fly__list")) {
+      const flyLists = qAll(".fly__list");
 
-    const random = (min, max) => {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-    // генерация мух
-    for (let flyList of flyLists) {
-      const availableScreenWidth = window.screen.availWidth;
-      let randomFly;
-      if (availableScreenWidth > 850) {
-        randomFly = random(5, 8);
-      } else if (availableScreenWidth > 550) {
-        randomFly = random(2, 5);
-      } else if (flyList.availHeight < 250) {
-        randomFly = 2;
-      } else {
-        randomFly = 5;
+      const random = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
+      // генерация мух
+      for (let flyList of flyLists) {
+        const availableScreenWidth = window.screen.availWidth;
+        flyList.innerHTML = "";
+        let randomFly;
+        if (availableScreenWidth > 850) {
+          randomFly = random(5, 8);
+        } else if (availableScreenWidth > 550) {
+          randomFly = random(2, 5);
+        } else if (flyList.availHeight < 250) {
+          randomFly = 2;
+        } else {
+          randomFly = 5;
+        }
+
+        for (let i = 0; i < randomFly; i++) {
+          flyList.insertAdjacentHTML(
+            "beforeend",
+            `<span class="fly__item"></span>`
+          );
+        }
       }
-
-      for (let i = 0; i < randomFly; i++) {
-        flyList.insertAdjacentHTML(
-          "beforeend",
-          `<span class="fly__item"></span>`
-        );
+      // генерация расположения мух
+      for (let flyList of flyLists) {
+        const flys = flyList.querySelectorAll(".fly__item");
+        let left = 100 / flys.length;
+        let padding = 7;
+        if (flys < 4) {
+          padding = 20;
+        }
+        for (let fly of flys) {
+          fly.style.setProperty(
+            "--left",
+            `${random(left - 100 / flys.length - 4, left - padding)}%`
+          );
+          fly.style.setProperty("--top", `${random(-2, 85)}%`);
+          fly.style.setProperty("--deg", `${random(0, 360)}deg`);
+          left += 100 / (flys.length + 1);
+        }
       }
     }
-    // генерация расположения мух
-    for (let flyList of flyLists) {
-      const flys = flyList.querySelectorAll(".fly__item");
-      let left = 100 / flys.length;
-      let padding = 7;
-      if (flys < 4) {
-        padding = 20;
-      }
-      for (let fly of flys) {
-        fly.style.setProperty(
-          "--left",
-          `${random(left - 100 / flys.length - 4, left - padding)}%`
-        );
-        fly.style.setProperty("--top", `${random(-2, 85)}%`);
-        fly.style.setProperty("--deg", `${random(0, 360)}deg`);
-        left += 100 / (flys.length + 1);
-      }
+  }
+  flyGen();
+  if (qOne(".fly__list")) {
+    const flyList = qAll(".fly__list");
+    for (let fly of flyList) {
+      let counter = 0;
+      fly.onmouseout = function flys(event) {
+        counter++;
+
+        if (counter % 3 == 0) flyGen();
+      };
     }
   }
 
@@ -397,14 +412,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // отменя стандартной отправки формы
-  if (qOne('.cart')) {
-    const arrangeForm = qOne('.cart');
-    arrangeForm.addEventListener("submit", (e)=> {
+  if (qOne(".cart")) {
+    const arrangeForm = qOne(".cart");
+    arrangeForm.addEventListener("submit", (e) => {
       e.preventDefault();
       hidePopaps();
       overlay.classList.add("overlay--active");
-      qOne('.thanks').classList.add("popap--active");
+      qOne(".thanks").classList.add("popap--active");
     });
   }
-
 });

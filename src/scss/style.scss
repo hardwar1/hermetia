@@ -199,6 +199,10 @@ body {
     padding: 0;
     border: 0;
     background-color: transparent;
+    transition:  transform 0.2s;
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   .swiper-pagination {
@@ -209,10 +213,14 @@ body {
 
   .swiper-pagination-bullet {
     background-color: $grey;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     width: 10px;
     height: 10px;
     opacity: 1;
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   .swiper-pagination-bullet-active {
