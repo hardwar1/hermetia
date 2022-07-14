@@ -215,9 +215,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   flyGen();
-  if (qOne(".fly__list")) {
-    const flyList = qAll(".fly__list");
-    for (let fly of flyList) {
+  if (qOne(".fly")) {
+    const flyBlock = qAll(".fly");
+    for (let fly of flyBlock) {
       let counter = 0;
       fly.onmouseout = function flys(event) {
         counter++;
@@ -324,8 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (qOne(".js-photo-slider")) {
     const jsPhotoSliderBtns = qAll(".js-photo-slider"),
       detailsPhotoSlider = qOne(".details-photo-slider"),
-      closeBtns = detailsPhotoSlider.querySelectorAll(".burger"),
-      productDetails = qOne(".product-details");
+      closeBtns = detailsPhotoSlider.querySelectorAll(".burger");
 
     for (const btn of jsPhotoSliderBtns) {
       btn.addEventListener("click", () => {
