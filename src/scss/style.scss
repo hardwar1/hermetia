@@ -742,10 +742,6 @@ body {
 
   &__item {
     margin: 0 15px 30px;
-
-    @include max-w($sm) {
-      margin: 0 0 10px;
-    }
   }
 
   &__logo {
@@ -895,43 +891,6 @@ body {
 
     &:not(:last-child) {
       margin-bottom: 10px;
-    }
-  }
-
-  &--row {
-    @include max-w($sm) {
-      width: unset;
-      display: flex;
-      max-width: 360px;
-    }
-    .product-card {
-      &__img-text {
-        @include max-w($sm) {
-          font-size: 14px;
-          padding-top: 90px;
-        }
-
-        &::after {
-          @include max-w($sm) {
-            width: 47px;
-            top: 40px;
-          }
-        }
-      }
-
-      &__info {
-        @include max-w($sm) {
-          width: 168px;
-          padding-left: 10px;
-        }
-      }
-
-      &__footer {
-        @include max-w($sm) {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
     }
   }
 }
