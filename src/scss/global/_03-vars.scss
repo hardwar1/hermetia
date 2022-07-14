@@ -1,0 +1,15 @@
+$green: #057c02;
+$greend: #7ec77d;
+$green1: #426841;
+$whitec: #edf9ec;
+$grey: #c4c4c4;
+$greye: #9e9e9e;
+$grey2: #f2f2f2;
+$yellow: #ffe6b4;
+
+@include font-face("Poppins", Poppins-Bold, 700);
+@include font-face("Poppins", Poppins-Medium, 500);
+@include font-face("Poppins", Poppins-ExtraBold, 900);
+@include font-face("Poppins", Poppins-Regular, 400);
+@include font-face("Inter", Inter/Inter-Regular, 400);
+

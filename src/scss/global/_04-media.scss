@@ -1,0 +1,16 @@
+$sm: 600px;
+$md: 800px;
+$lg: 1024px;
+$xl: 1800px;
+
+@mixin max-w($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin min-w($width) {
+  @media only screen and (min-width: $width + 1px) {
+    @content;
+  }
+}
