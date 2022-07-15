@@ -199,7 +199,7 @@ body {
     padding: 0;
     border: 0;
     background-color: transparent;
-    transition:  transform 0.2s;
+    transition: transform 0.2s;
     &:hover {
       transform: scale(1.5);
     }
@@ -812,6 +812,11 @@ body {
     position: relative;
     border-radius: 10px;
     margin-bottom: 10px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__img {
@@ -835,6 +840,7 @@ body {
     backdrop-filter: blur(5px);
     border-radius: 10px;
     opacity: 0;
+
 
     @include max-w($sm) {
       font-size: 14px;
@@ -1007,6 +1013,16 @@ body {
     border-radius: 10px;
     border: 0;
     padding: 6px 12px;
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.7);
+    }
+
+    &:hover {
+      box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.5);
+    }
 
     &::placeholder {
       color: $grey;
@@ -1429,9 +1445,9 @@ body {
       width: fit-content;
       position: relative;
       margin: 0 auto;
-  
+
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         right: 0;
         top: 50%;
@@ -1442,8 +1458,7 @@ body {
         background-position: center;
         width: 32px;
         height: 30px;
-    }
-
+      }
     }
   }
 }
@@ -1668,17 +1683,34 @@ body {
     justify-content: space-between;
   }
 
-  &__del::after {
-    top: 13px;
-    left: 30px;
-    height: 18px;
-    transform: translateX(-50%);
+  &__del {
+    outline: 0;
+    &:focus::after {
+      transform: translateX(-50%) scale(1.3);
+    }
+
+    &:hover::after {
+      transform: translateX(-50%) scale(1.2);
+    }
+
+    &::after {
+      top: 13px;
+      left: 30px;
+      height: 18px;
+      transform: translateX(-50%);
+      transition: transform 0.2s;
+    }
   }
 
   &__btn-slider {
     @include no-btn;
     margin-right: 15px;
     flex-shrink: 0;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__img {
