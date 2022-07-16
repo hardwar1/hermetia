@@ -24,11 +24,16 @@ body {
   @include min-w($lg) {
     display: inline-block;
     transition: color 0.3s, transform 0.3s;
+    outline: 0;
 
     &:focus {
       color: $green;
       outline: 0;
     }
+
+    &--white:focus {
+      color: $grey;
+    } 
 
     &:hover {
       transform: scale(1.1);
@@ -352,6 +357,7 @@ body {
 
   &__quantity {
     position: absolute;
+    color: #000;
     left: 100%;
     top: 2px;
     transform: translateX(-50%);
